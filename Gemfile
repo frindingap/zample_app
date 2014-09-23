@@ -23,6 +23,7 @@ gem 'jbuilder', '1.0.2'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
+gem 'bcrypt', '3.1.7'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
