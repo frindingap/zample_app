@@ -12,15 +12,15 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	debugger
   end
-  def create
-  	@user = User.new(user_params)
-  	if @user.save
-      log_in @user
-  		flash[:success] = "Welcome to the Sample App!"
-  		redirect_to @user
-  	else
-  		render 'new'
-  	end
+   def create
+    @user = User.new(user_params)
+    if @user.save
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+    else
+      render 'new'
+    end
   end
   # Returns the hash digest of the given string.
   def User.digest(string)
