@@ -1,4 +1,5 @@
 ZampleApp::Application.routes.draw do
+  get "feeds/index"
   get "account_activation/edit"
   get "sessions/new"
   get "users/new"
@@ -12,6 +13,7 @@ ZampleApp::Application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :account_activations, only: [:edit]
   resources :users
+  resources :feeds
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your  routes lay out with "rake routes".
 

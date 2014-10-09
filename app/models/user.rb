@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token, :activation_token
-  before_crete :create_activation_digest
+  attr_accessor :remember_token, :activation_token, :reset_token
+  before_create :create_activation_digest
   before_save :downcase_email
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     update_attribute(:activated_at, Time.zone.now)
   end
 
-   # Sends activation email.
+  # Sends activation email.
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end

@@ -10,8 +10,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
+  gem 'minitest-reporters'
+  gem 'mini_backtrace',     '0.1.3'
+  gem 'guard-minitest'
 end
 
 #gem 'sass-rails', '4.0.3'
