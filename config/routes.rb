@@ -8,6 +8,7 @@ ZampleApp::Application.routes.draw do
   match '/help',   to: 'static_pages#help',      via: 'get'
   match '/about',  to: 'static_pages#about',     via: 'get'
   match '/contact',to: 'static_pages#contact',   via: 'get'
+  match '/news'   ,to: 'feeds#index'             via: 'get'
   get 'login'     =>'sessions#new'
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
